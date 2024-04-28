@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabla con Formulario</title>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+    textarea {
+        width: 100%;
+        height: 50px; /* Altura */
+        resize: vertical;
+    }
+</style>
+</head>
+<body>
+    <div id="contenedor-tablas">
+    </div>
+    <button onclick="agregarTabla()">Add Table</button>
+    <script>
+        function agregarTabla() {
+            var contenedor = document.getElementById("contenedor-tablas");
+            var nuevaTabla = document.createElement("table");
+            nuevaTabla.innerHTML = `
+    <tr>
+        <th>ROOM NUMBER:</th>
+        <td><input type="text" id="numeroCuarto" name="numeroCuarto"></td>
+    </tr>
+    <tr>
+        <th colspan="5">Description</th>
+    </tr>
+    <tr>
+        <td><label>Room profile</label></td>
+        <td><label>Room Capacity</label></td>
+        <td><label>Room occupancy</label></td>
+    </tr>
+    <tr>
+        <td><input type="text" id="descripcion4" name="descripcion4"></td>
+        <td><input type="text" id="descripcion5" name="descripcion5"></td>
+        <td><input type="text" id="descripcion6" name="descripcion6"></td>
+    </tr>
+    <tr>
+        <th colspan="5">What does the room have?</th>
+    </tr>
+    <tr>
+        <td><input type="checkbox" id="opcion1" name="opcion1"><label for="opcion1">TV</label></td>
+        <td><input type="checkbox" id="opcion2" name="opcion2"><label for="opcion2">Ensuite</label></td>
+        <td><input type="checkbox" id="opcion3" name="opcion3"><label for="opcion3">Shared bathroom</label></td>
+        <td><input type="checkbox" id="opcion4" name="opcion4"><label for="opcion4">Smoke Alarm</label></td>
+        <td><input type="checkbox" id="opcion5" name="opcion5"><label for="opcion5">Fire notice</label></td>
+    </tr>
+    <tr>
+        <th colspan="5">CLEANLINESS</th>
+    </tr>
+    <tr>
+        <td><input type="checkbox" id="opcion6" name="opcion6"><label for="opcion6">Very good</label></td>
+        <td><input type="checkbox" id="opcion7" name="opcion7"><label for="opcion7">Adequate</label></td>
+        <td><input type="checkbox" id="opcion8" name="opcion8"><label for="opcion8">Poor*</label></td>
+        <td><input type="checkbox" id="opcion9" name="opcion9"><label for="opcion9">Urgent attention</label></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td><ladel>Is everything in working order</ladel></td>
+        <th colspan="2"><input type="checkbox" id="opcion10" name="opcion10"><label for="opcion10">Yes</label></th>
+        <th colspan="2"><input type="checkbox" id="opcion11" name="opcion11"><label for="opcion11">No</label></th>
+    </tr>
+    <tr>
+        <th>COMMENTS:</th>
+        <th colspan="3"><textarea id="descripcion3" name="descripcion3"></textarea></th>
+        <td><input type="file" name="imagen"></td>
+    </tr>
+    <br><br><br>
+    `;
+    contenedor.appendChild(nuevaTabla);
+}
+</script>
+
+<br><br>
+<button onclick="imprimirPagina()">Imprimir</button>
+
+<script>
+function imprimirPagina() {
+    window.print();
+}
+</script>
+</body>
+</html>
